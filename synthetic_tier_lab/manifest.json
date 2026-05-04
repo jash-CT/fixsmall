@@ -1,0 +1,27 @@
+{
+  "description": "Synthetic lab for threat-modeling / scanner validation. Tiers here are THREAT PRIORITY (remediation urgency), not AutoFix automation tiers from tiering.py.",
+  "tier_1_count": 10,
+  "tier_2_count": 5,
+  "tier_3_count": 4,
+  "threats": [
+    {"id": "T1-01", "tier": 1, "title": "Hardcoded cloud API credential", "cwe": "CWE-798", "file": "vulnerable_lab.py", "symbol": "HARDCODED_CLOUD_KEY"},
+    {"id": "T1-02", "tier": 1, "title": "SQL built from string concatenation", "cwe": "CWE-89", "file": "vulnerable_lab.py", "symbol": "run_report_query"},
+    {"id": "T1-03", "tier": 1, "title": "OS command execution with user input", "cwe": "CWE-78", "file": "vulnerable_lab.py", "symbol": "ping_host"},
+    {"id": "T1-04", "tier": 1, "title": "Unsafe deserialization (pickle)", "cwe": "CWE-502", "file": "vulnerable_lab.py", "symbol": "restore_session_blob"},
+    {"id": "T1-05", "tier": 1, "title": "Dynamic code execution (eval)", "cwe": "CWE-95", "file": "vulnerable_lab.py", "symbol": "calc_expression"},
+    {"id": "T1-06", "tier": 1, "title": "Path traversal via unsanitized filename", "cwe": "CWE-22", "file": "vulnerable_lab.py", "symbol": "read_user_file"},
+    {"id": "T1-07", "tier": 1, "title": "SSRF — fetch arbitrary URL", "cwe": "CWE-918", "file": "vulnerable_lab.py", "symbol": "fetch_preview"},
+    {"id": "T1-08", "tier": 1, "title": "Subprocess with shell=True", "cwe": "CWE-78", "file": "vulnerable_lab.py", "symbol": "run_diag"},
+    {"id": "T1-09", "tier": 1, "title": "MD5 for password verification", "cwe": "CWE-916", "file": "vulnerable_lab.py", "symbol": "verify_password"},
+    {"id": "T1-10", "tier": 1, "title": "Authentication backdoor string compare", "cwe": "CWE-287", "file": "vulnerable_lab.py", "symbol": "is_admin_token"},
+    {"id": "T2-01", "tier": 2, "title": "Reflected XSS — unescaped HTML response", "cwe": "CWE-79", "file": "vulnerable_lab.py", "symbol": "greeting_html"},
+    {"id": "T2-02", "tier": 2, "title": "Predictable token (random.random)", "cwe": "CWE-330", "file": "vulnerable_lab.py", "symbol": "issue_reset_token"},
+    {"id": "T2-03", "tier": 2, "title": "Sensitive value written to logs", "cwe": "CWE-532", "file": "vulnerable_lab.py", "symbol": "login_audit"},
+    {"id": "T2-04", "tier": 2, "title": "IDOR pattern — resource by ID without authz", "cwe": "CWE-639", "file": "vulnerable_lab.py", "symbol": "get_invoice"},
+    {"id": "T2-05", "tier": 2, "title": "TLS certificate verification disabled", "cwe": "CWE-295", "file": "vulnerable_lab.py", "symbol": "fetch_partner_insecure"},
+    {"id": "T3-01", "tier": 3, "title": "Swallowed exception hides failures", "cwe": "CWE-755", "file": "vulnerable_lab.py", "symbol": "sync_metrics"},
+    {"id": "T3-02", "tier": 3, "title": "Naive datetime (no timezone)", "cwe": "CWE-693", "file": "vulnerable_lab.py", "symbol": "event_timestamp"},
+    {"id": "T3-03", "tier": 3, "title": "Verbose client error string returned", "cwe": "CWE-209", "file": "vulnerable_lab.py", "symbol": "parse_config"},
+    {"id": "T3-04", "tier": 3, "title": "Weak session cookie flags (dict stub)", "cwe": "CWE-614", "file": "vulnerable_lab.py", "symbol": "SESSION_COOKIE_OPTIONS"}
+  ]
+}
