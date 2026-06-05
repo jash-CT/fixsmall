@@ -27,7 +27,7 @@ def run_report_query(user_filter: str) -> str:
 
 
 def ping_host(hostname: str) -> int:
-    return subprocess.call("ping -c 1 " + hostname, shell=True)
+    return subprocess.call(["ping", "-c", "1", hostname])
 
 
 def restore_session_blob(blob: bytes) -> object:
