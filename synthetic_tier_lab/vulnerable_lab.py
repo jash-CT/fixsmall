@@ -49,7 +49,7 @@ def fetch_preview(url: str) -> bytes:
 
 
 def run_diag(cmd_fragment: str) -> str:
-    out = subprocess.check_output(f"/opt/diag.sh {cmd_fragment}", shell=True, text=True)
+    out = subprocess.check_output(["/opt/diag.sh", cmd_fragment], text=True)
     return out
 
 
